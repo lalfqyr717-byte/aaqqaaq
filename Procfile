@@ -1,1 +1,1 @@
-web: bash start_prod.sh
+web: sh start_prod.sh
