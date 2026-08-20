@@ -2,18 +2,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from django.http import JsonResponse, HttpResponse
-
-def health_check(request):
-    return JsonResponse({'ok': True, 'status': 'healthy'})
-
-def home(request):
-    return HttpResponse('<h1>TOX ERP - Deployment Successful</h1><p>The application is running on Railway.</p>')
+from . import views
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('', views.home, name='home'),
     path('admin/', admin.site.urls),
-    path('api/health/', health_check, name='health_check'),
+    path('api/health/', views.health_check, name='health_check'),
 ]
 
 if settings.DEBUG:
