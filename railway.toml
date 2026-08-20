@@ -1,0 +1,14 @@
+[build]
+builder = "NIXPACKS"
+
+[build.env]
+PYTHON_VERSION = "3.11"
+
+[deploy]
+healthcheckPath = "/health/"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+
+[[services]]
+name = "web"
+command = "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn toxerp.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers ${GUNICORN_WORKERS:-4}"
