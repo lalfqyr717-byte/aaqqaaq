@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('TOX_SECRET_KEY', 'django-insecure-4rc1h-=_3*78&qadbxka2(edjn*lld_t4^3-t(r!7^+kv=ns@+')
 DEBUG = os.environ.get('TOX_DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = os.environ.get('TOX_ALLOWED_HOSTS', '127.0.0.1,localhost,moq.up.railway.app').split(',')
+ALLOWED_HOSTS = os.environ.get('TOX_ALLOWED_HOSTS', '127.0.0.1,localhost,moq.up.railway.app,healthcheck.railway.app').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
