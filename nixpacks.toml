@@ -6,3 +6,6 @@ cmds = ["python -m venv --copies /opt/venv && . /opt/venv/bin/activate && pip in
 
 [phases.start]
 cmd = "python tox/manage.py migrate --noinput && python tox/manage.py collectstatic --noinput && gunicorn tox.wsgi:application --bind 0.0.0.0:${PORT:-8080} --workers 2"
+
+[env]
+ALLOWED_HOSTS = "127.0.0.1,localhost,moq.up.railway.app,healthcheck.railway.app"
