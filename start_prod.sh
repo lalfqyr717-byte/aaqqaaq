@@ -7,4 +7,4 @@ python manage.py migrate --noinput || true
 # Collect static files
 python manage.py collectstatic --noinput || true
 # Start gunicorn; PORT env var is provided by Railway
-exec gunicorn tox.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers ${GUNICORN_WORKERS:-4}
+exec gunicorn tox.wsgi:application --bind 0.0.0.0:$PORT --workers 4
