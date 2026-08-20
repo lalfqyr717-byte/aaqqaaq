@@ -1,11 +1,15 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
+
+def health_check(request):
+    return JsonResponse({'ok': True, 'status': 'healthy'})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('django.urls.static')),
+    path('api/health/', health_check, name='health_check'),
 ]
 
 if settings.DEBUG:

@@ -5,7 +5,7 @@ builder = "NIXPACKS"
 PYTHON_VERSION = "3.11"
 
 [deploy]
-healthcheckPath = "/health/"
+healthcheckPath = "/api/health/"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
 
