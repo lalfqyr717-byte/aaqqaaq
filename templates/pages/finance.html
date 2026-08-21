@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TOX Lite | المرتجعات</title>
+  <title>TOX Lite | المالية</title>
   <script src="{% static 'js/theme-bootstrap.js' %}"></script>
   <script src="{% static 'js/interaction-core.js' %}"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   <link rel="stylesheet" href="{% static 'css/dashboard-2026.css' %}" />
 </head>
-<body class="app-booting" data-page="returns">
+<body class="app-booting" data-page="finance">
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="/">
@@ -31,10 +31,10 @@
         <a class="nav-link" href="/pages/clients.html">العملاء</a>
         <a class="nav-link" href="/pages/suppliers.html">الموردين</a>
         <a class="nav-link" href="/pages/employees.html">الموظفين</a>
-        <a class="nav-link" href="/pages/finance.html">المالية</a>
+        <a class="nav-link active" href="/pages/finance.html">المالية</a>
         <a class="nav-link" href="/pages/installments.html">الأقساط</a>
         <a class="nav-link" href="/pages/sales-invoices.html">فواتير البيع</a>
-        <a class="nav-link active" href="/pages/returns.html">المرتجعات</a>
+        <a class="nav-link" href="/pages/returns.html">المرتجعات</a>
         <a class="nav-link" href="/pages/reports.html">التقارير</a>
         <a class="nav-link" href="/pages/settings.html">الإعدادات</a>
         <a class="nav-link" href="/pages/labels.html">الطباعة والملصقات</a>
@@ -42,12 +42,12 @@
     </aside>
     <main class="workspace">
       <section class="tox-page-header">
-        <h1>المرتجعات</h1>
-        <p>إدارة مرتجعات المبيعات والمشتريات</p>
+        <h1>المالية</h1>
+        <p>إدارة الحسابات المالية والمدفوعات</p>
       </section>
       <section class="tox-page-content">
         <div class="tox-empty-state">
-          <h2>قسم المرتجعات</h2>
+          <h2>قسم المالية</h2>
           <p>هذه الصفحة قيد التطوير. يمكنك العودة إلى المركز الرئيسي.</p>
           <a href="/" class="tox-btn">العودة للرئيسية</a>
         </div>
@@ -58,6 +58,6 @@
   <script src="{% static 'js/welcome.js' %}"></script>
   <script src="{% static 'js/state.js' %}"></script>
   <script src="{% static 'js/ui.js' %}"></script>
-  <script src="{% static 'js/returns.js' %}"></script>
+  <script src="{% static 'js/finance.js' %}"></script>
 </body>
 </html>
