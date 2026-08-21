@@ -1,2 +1,5 @@
 # Force Railway to pick up new configuration by ignoring cache
 .nixpacks/
+nixpacks.toml
+railway.toml
+start_prod.sh
