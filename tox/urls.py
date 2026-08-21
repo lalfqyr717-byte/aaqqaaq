@@ -31,6 +31,7 @@ urlpatterns += [
     path('pages/product-alerts.html', TemplateView.as_view(template_name='pages/product-alerts.html'), name='product_alerts_page'),
     path('pages/finance.html', TemplateView.as_view(template_name='pages/finance.html'), name='finance_page'),
     path('pages/labels.html', TemplateView.as_view(template_name='pages/labels.html'), name='labels_page'),
+    path('pages/super-admin.html', TemplateView.as_view(template_name='pages/super-admin.html'), name='super_admin_page'),
     path('pages/reports.html', TemplateView.as_view(template_name='pages/reports.html'), name='reports_page'),
     path('pages/settings.html', TemplateView.as_view(template_name='pages/settings.html'), name='settings_page'),
 ]
