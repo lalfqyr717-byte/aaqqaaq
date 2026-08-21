@@ -52,7 +52,7 @@
   }
 
   function firstAllowedPage(user) {
-    if (user?.role === "super_admin") return pagePath("super-admin");
+    // Skip super_admin redirect since super-admin.html doesn't exist
     const permissions = new Set(user?.permissions || []);
     if (permissions.has("dashboard.open") || permissions.has("admin.settings")) return window.location.pathname.includes("/pages/") ? "../index.html" : "index.html";
     if (permissions.has("sales.open")) return pagePath("sales");
@@ -123,9 +123,8 @@
     });
     window.refreshSidebarNavigation?.();
     const required = pagePermissions[currentPage()];
-    if (user?.role === "super_admin" && currentPage() !== "super-admin") {
-      window.location.replace(firstAllowedPage(user));
-    } else if (required && !can(user, required)) {
+    // Skip super_admin redirect since super-admin.html doesn't exist
+    if (required && !can(user, required)) {
       window.location.replace(firstAllowedPage(user));
     }
   }
@@ -518,10 +517,7 @@
       applyPermissions(readSessionUser());
       window.setTimeout(() => {
         const user = readSessionUser();
-        if (user?.role === "super_admin" && currentPage() !== "super-admin") {
-          window.location.href = firstAllowedPage(user);
-          return;
-        }
+        // Skip super_admin redirect since super-admin.html doesn't exist
         if (!can(user, pagePermissions[currentPage()])) {
           window.location.href = firstAllowedPage(user);
           return;
