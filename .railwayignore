@@ -1,3 +1,5 @@
-# Ignore start_prod.sh to force Railway to use Procfile
+# Force Railway to ignore all old config files and use Nixpacks only
+.nixpacks/
+Procfile
 start_prod.sh
 scripts/start_prod.sh
