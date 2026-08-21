@@ -14,7 +14,7 @@ Railway يستخدم تكويناً مخزناً مؤقتاً (cached configurat
 1. في صفحة المشروع، انقر على "Settings"
 2. اختر "Variables"
 3. تأكد من وجود المتغيرات التالية:
-   - `ALLOWED_HOSTS`: `127.0.0.1,localhost,moq.up.railway.app,healthcheck.railway.app`
+   - `ALLOWED_HOSTS`: `127.0.0.1,localhost,moq.up.railway.app,moqq.up.railway.app,healthcheck.railway.app`
    - `TOX_DEBUG`: `False`
    - `TOX_SECRET_KEY`: قيمة سرية عشوائية
 
@@ -64,7 +64,7 @@ Railway يستخدم تكويناً مخزناً مؤقتاً (cached configurat
 #### 3. متغيرات البيئة
 أضف المتغيرات التالية في Railway Variables:
 ```
-ALLOWED_HOSTS=127.0.0.1,localhost,moq.up.railway.app,healthcheck.railway.app
+ALLOWED_HOSTS=127.0.0.1,localhost,moq.up.railway.app,moqq.up.railway.app,healthcheck.railway.app
 TOX_DEBUG=False
 DJANGO_SETTINGS_MODULE=tox.settings
 ```
