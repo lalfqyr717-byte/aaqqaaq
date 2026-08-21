@@ -1,7 +1,2 @@
-# Force Railway to completely rebuild - ignore all config files
+# Force Railway to rebuild configuration
 .nixpacks/
-railway.toml
-nixpacks.toml
-Procfile
-start_prod.sh
-scripts/start_prod.sh
