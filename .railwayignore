@@ -1,2 +1,4 @@
-# Force Railway to rebuild configuration
+# Force Railway to ignore old configuration files and rebuild
 .nixpacks/
+railway.toml
+nixpacks.toml

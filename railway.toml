@@ -1,7 +1,9 @@
-[build]
-builder = "NIXPACKS"
-
-[deploy]
-startCommand = "python manage.py migrate --noinput && gunicorn wsgi:application --bind 0.0.0.0:$PORT --workers 2"
-healthcheckPath = "/"
-healthcheckTimeout = 300
+# DISABLED - Force Railway to use Procfile instead
+# Uncomment this to re-enable Railway-specific configuration
+# [build]
+# builder = "NIXPACKS"
+# 
+# [deploy]
+# startCommand = "python manage.py migrate --noinput && gunicorn wsgi:application --bind 0.0.0.0:$PORT --workers 2"
+# healthcheckPath = "/"
+# healthcheckTimeout = 300
