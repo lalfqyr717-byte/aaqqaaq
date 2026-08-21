@@ -21,7 +21,13 @@ def auth_login(request):
             username = data.get('username')
             password = data.get('password')
             account_type = data.get('accountType', 'admin')
-            
+
+            # Auto-create production user if it doesn't exist (Railway workaround)
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            if not User.objects.filter(username='user').exists():
+                User.objects.create_superuser('user', 'user@tox.iq', 'user123')
+
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
@@ -58,7 +64,7 @@ def auth_login(request):
                 'ok': False,
                 'reason': str(e)
             }, status=400)
-    
+
     return JsonResponse({'ok': False, 'reason': 'Method not allowed'}, status=405)
 
 def api_session(request):
