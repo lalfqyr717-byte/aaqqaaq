@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 # Entrypoint for production: run migrations, collect static, then start gunicorn
+cd /app
 # Apply migrations (non-interactive)
 python tox/manage.py migrate --noinput || true
 # Collect static files

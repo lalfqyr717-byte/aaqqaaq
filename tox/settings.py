@@ -72,7 +72,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.environ.get('TOX_STATIC_ROOT', BASE_DIR / 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATICFILES_DIRS = [BASE_DIR / 'assets', BASE_DIR.parent / 'assets']
+STATICFILES_DIRS = [BASE_DIR / 'assets']
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
