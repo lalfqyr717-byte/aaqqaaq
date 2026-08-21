@@ -6,5 +6,10 @@
   ],
   "scripts": {
     "start": "python manage.py migrate --noinput && python manage.py collectstatic --noinput && python ensure_production_user.py && gunicorn wsgi:application --bind 0.0.0.0:$PORT --workers 2"
+  },
+  "env": {
+    "ALLOWED_HOSTS": "127.0.0.1,localhost,moq.up.railway.app,moqq.up.railway.app,healthcheck.railway.app",
+    "TOX_DEBUG": "False",
+    "DJANGO_SETTINGS_MODULE": "tox.settings"
   }
 }
