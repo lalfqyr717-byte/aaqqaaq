@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate, login
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -106,3 +106,36 @@ def api_sync(request):
             }, status=400)
     
     return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
+
+def api_state(request):
+    """API endpoint for state management (alias for api_session)"""
+    return api_session(request)
+
+def api_analytics_dashboard(request):
+    """API endpoint for dashboard analytics"""
+    try:
+        # Placeholder for dashboard analytics data
+        analytics_data = {
+            'total_sales': 0,
+            'total_revenue': 0,
+            'total_products': 0,
+            'total_clients': 0,
+            'total_employees': 0,
+            'recent_sales': [],
+            'stock_alerts': [],
+            'revenue_chart': [],
+            'period': 'today'
+        }
+        return JsonResponse({
+            'ok': True,
+            'data': analytics_data
+        })
+    except Exception as e:
+        return JsonResponse({
+            'ok': False,
+            'error': str(e)
+        }, status=500)
+
+def favicon_redirect(request):
+    """Handle favicon.ico requests - return empty response to avoid 404"""
+    return HttpResponse('', content_type='image/vnd.microsoft.icon')
