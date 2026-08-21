@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-# Production startup script for Railway
+# Production startup script for Railway - includes production user setup
 python manage.py migrate --noinput
 python manage.py collectstatic --noinput
 python ensure_production_user.py
