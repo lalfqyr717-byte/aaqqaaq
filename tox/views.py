@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login
 from django.views.decorators.csrf import csrf_exempt
@@ -7,10 +7,6 @@ import json
 def home(request):
     """Render the main index.html page"""
     return render(request, 'index.html')
-
-def pages_redirect(request, path=""):
-    """Redirect all pages requests to home since pages directory is empty"""
-    return redirect('home')
 
 def health_check(request):
     """Health check endpoint for Railway"""
