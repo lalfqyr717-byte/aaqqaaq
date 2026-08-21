@@ -25,6 +25,8 @@ urlpatterns += [
     path('pages/warehouse.html', TemplateView.as_view(template_name='pages/warehouse.html'), name='warehouse_page'),
     path('pages/employees.html', TemplateView.as_view(template_name='pages/employees.html'), name='employees_page'),
     path('pages/installments.html', TemplateView.as_view(template_name='pages/installments.html'), name='installments_page'),
+    path('pages/sales-invoices.html', TemplateView.as_view(template_name='pages/sales-invoices.html'), name='sales_invoices_page'),
+    path('pages/returns.html', TemplateView.as_view(template_name='pages/returns.html'), name='returns_page'),
     path('pages/reports.html', TemplateView.as_view(template_name='pages/reports.html'), name='reports_page'),
     path('pages/settings.html', TemplateView.as_view(template_name='pages/settings.html'), name='settings_page'),
 ]
