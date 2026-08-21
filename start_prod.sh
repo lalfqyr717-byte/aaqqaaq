@@ -1,12 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 set -e
-# Entrypoint for production: run migrations, collect static, create user, then start gunicorn
-cd /app
+# Entrypoint for production: run migrations, collect static, then start gunicorn
+cd tox
 # Apply migrations (non-interactive)
-python tox/manage.py migrate --noinput || true
+python manage.py migrate --noinput || true
 # Collect static files
-python tox/manage.py collectstatic --noinput || true
-# Create or update maqi user
-python create_production_user.py || true
+python manage.py collectstatic --noinput || true
 # Start gunicorn; PORT env var is provided by Railway
-exec gunicorn tox.wsgi:application --bind 0.0.0.0:${PORT:-8080} --workers 2
+exec gunicorn toxerp.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers ${GUNICORN_WORKERS:-4}

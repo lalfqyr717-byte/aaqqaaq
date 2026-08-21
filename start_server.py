@@ -17,7 +17,7 @@ def local_host(value):
 
 
 def configure_environment(args):
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "toxerp.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tox.toxerp.settings")
     args.host = local_host(args.host)
     os.environ["TOX_PORT"] = str(args.port)
     os.environ["TOX_HOST"] = args.host
