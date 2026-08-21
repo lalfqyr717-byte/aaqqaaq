@@ -1,4 +1,2 @@
 # Force Railway to rebuild configuration
 .nixpacks/
-Procfile
-railway.toml
