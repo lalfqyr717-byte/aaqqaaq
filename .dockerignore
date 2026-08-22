@@ -16,3 +16,4 @@ ORIG_HEAD
 config
 description
 index
+tox/settings/
