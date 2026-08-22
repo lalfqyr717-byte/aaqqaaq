@@ -16,3 +16,10 @@ db.sqlite3-shm
 desktop-app/node_modules/
 desktop-app/dist/
 desktop-app/out/
+COMMIT_EDITMSG
+FETCH_HEAD
+HEAD
+ORIG_HEAD
+config
+description
+index
