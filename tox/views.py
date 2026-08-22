@@ -10,7 +10,7 @@ def home(request):
 
 def health_check(request):
     """Health check endpoint for Railway"""
-    return JsonResponse({'ok': True, 'status': 'healthy'})
+    return JsonResponse({'ok': True, 'status': 'healthy', 'service': 'tox-erp', 'version': '1.0.0'})
 
 @csrf_exempt
 def auth_login(request):
