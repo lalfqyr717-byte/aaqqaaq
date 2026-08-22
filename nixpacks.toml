@@ -1,0 +1,17 @@
+[phases.setup]
+nixPkgs = ["python3", "gcc"]
+
+[phases.install]
+cmds = ["python -m venv --copies /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt"]
+
+[phases.build]
+cmds = ["python manage.py collectstatic --noinput"]
+
+[phases.start]
+cmd = "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:$PORT"
+
+[env]
+ALLOWED_HOSTS = "127.0.0.1,localhost,moq.up.railway.app,moqq.up.railway.app,healthcheck.railway.app"
+TOX_DEBUG = "False"
+DJANGO_SETTINGS_MODULE = "tox.settings"
+PORT = "8080"
