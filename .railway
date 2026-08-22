@@ -1,2 +1,0 @@
-# Railway Configuration - Force use of Procfile
-# This forces Railway to use the Procfile instead of cached Nixpacks configuration
