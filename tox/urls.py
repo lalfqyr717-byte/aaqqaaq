@@ -11,6 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/health/', views.health_check, name='health_check'),
     path('api/auth/login/', views.auth_login, name='auth_login'),
+    path('api/auth/logout/', views.auth_logout, name='auth_logout'),
     path('api/session/', views.api_session, name='api_session'),
     path('api/state/', views.api_state, name='api_state'),
     path('api/sync/', views.api_sync, name='api_sync'),

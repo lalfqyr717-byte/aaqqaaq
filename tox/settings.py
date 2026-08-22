@@ -57,10 +57,11 @@ DATABASES = {
     }
 }
 
-# Railway PostgreSQL configuration
-import dj_database_url
+# Railway PostgreSQL configuration for production
 if 'DATABASE_URL' in os.environ:
+    import dj_database_url
     DATABASES['default'] = dj_database_url.config(os.environ.get('DATABASE_URL'), conn_max_age=600, ssl_require=True)
+    DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},

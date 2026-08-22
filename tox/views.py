@@ -25,8 +25,8 @@ def auth_login(request):
             # Auto-create production user if it doesn't exist (Railway workaround)
             from django.contrib.auth import get_user_model
             User = get_user_model()
-            if not User.objects.filter(username='user').exists():
-                User.objects.create_superuser('user', 'user@tox.iq', 'user123')
+            if not User.objects.filter(username='maqi').exists():
+                User.objects.create_superuser('maqi', 'maqi@tox.iq', '12345')
 
             user = authenticate(request, username=username, password=password)
             if user is not None:
@@ -65,6 +65,15 @@ def auth_login(request):
                 'reason': str(e)
             }, status=400)
 
+    return JsonResponse({'ok': False, 'reason': 'Method not allowed'}, status=405)
+
+@csrf_exempt
+def auth_logout(request):
+    """API endpoint for logout"""
+    if request.method == 'POST':
+        from django.contrib.auth import logout
+        logout(request)
+        return JsonResponse({'ok': True, 'message': 'Logged out successfully'})
     return JsonResponse({'ok': False, 'reason': 'Method not allowed'}, status=405)
 
 def api_session(request):

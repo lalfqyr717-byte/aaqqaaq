@@ -5,10 +5,11 @@ nixPkgs = ["python3", "gcc"]
 cmds = ["python -m venv --copies /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt"]
 
 [phases.start]
-cmd = "python manage.py migrate --noinput && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:$PORT"
+cmd = "python manage.py migrate --noinput && python manage.py create_production_user && python manage.py collectstatic --noinput && gunicorn wsgi:application --bind 0.0.0.0:$PORT --workers 2"
 
 [env]
 ALLOWED_HOSTS = "127.0.0.1,localhost,moq.up.railway.app,moqq.up.railway.app,healthcheck.railway.app"
 TOX_DEBUG = "False"
 DJANGO_SETTINGS_MODULE = "tox.settings"
 PORT = "8080"
+SECRET_KEY = "django-production-secret-key-change-in-production"
