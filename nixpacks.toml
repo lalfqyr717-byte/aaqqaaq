@@ -12,4 +12,3 @@ ALLOWED_HOSTS = "127.0.0.1,localhost,moq.up.railway.app,moqq.up.railway.app,heal
 TOX_DEBUG = "False"
 DJANGO_SETTINGS_MODULE = "tox.settings"
 PORT = "8080"
-SECRET_KEY = "django-production-secret-key-change-in-production"
