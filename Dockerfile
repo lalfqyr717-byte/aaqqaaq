@@ -11,6 +11,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput
-
-CMD sh -c "python manage.py migrate --noinput && python ensure_production_user.py && gunicorn wsgi:application --bind 0.0.0.0:8080 --workers 2"
+CMD sh -c "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn wsgi:application --bind 0.0.0.0:8080 --workers 2"
