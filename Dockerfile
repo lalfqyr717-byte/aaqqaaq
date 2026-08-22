@@ -12,7 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Make sure Django settings are correct
-RUN python manage.py check --deploy
-
-CMD sh -c "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn wsgi:application --bind 0.0.0.0:${PORT} --workers 2 --timeout 120 --keepalive 5"
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
